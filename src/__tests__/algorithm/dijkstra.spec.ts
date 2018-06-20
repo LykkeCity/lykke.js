@@ -1,4 +1,4 @@
-import {buildDijkstra} from '../../../algorithm/dijkstra';
+import {buildDijkstra} from '../../algorithm/dijkstra';
 
 describe('buildDijkstra', () => {
   it('should find the shortest path in graph', () => {
