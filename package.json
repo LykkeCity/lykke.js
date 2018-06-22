@@ -1,6 +1,6 @@
 {
-  "name": "lykke.js",
-  "version": "0.1.0",
+  "name": "@lykkex/lykke.js",
+  "version": "0.2.0",
   "description": "A TypeScript/Javascript library surrounding Lykke services",
   "keywords": [
     "Lykke"
