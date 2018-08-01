@@ -23,6 +23,8 @@ describe('Test locale for number and date', () => {
     expect(formattedNumber(5, 5)).toBe('5.00');
     expect(formattedNumber(5.234, 5)).toBe('5.2340');
     expect(formattedNumber(5.23455, 5)).toBe('5.23455');
+    expect(formattedNumber(100, 0)).toBe('100');
+    expect(formattedNumber(10, 2)).toBe('10.00');
   });
 
   it('should replace not a number value with 0', () => {

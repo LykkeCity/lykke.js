@@ -1,4 +1,8 @@
 export const checkForTrailingZero = (value: string): string => {
+  const notFractional = value.search(/\.|,/) === -1;
+  if (notFractional) {
+    return value;
+  }
   const indexOfZero = value.search(/0+$/);
   const zeroesQuantity =
     value[indexOfZero - 1] === ',' || value[indexOfZero - 1] === '.' ? 2 : 1;
