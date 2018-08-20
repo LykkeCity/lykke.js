@@ -118,7 +118,7 @@ describe('Test math functions', () => {
     it('should return value with fixed accuracy', () => {
       const value = 234567.8473263;
       const accuracy = 3;
-      const result = 234567.847;
+      const result = '234567.847';
 
       expect(toFixed(value, accuracy)).toBe(result);
     });
