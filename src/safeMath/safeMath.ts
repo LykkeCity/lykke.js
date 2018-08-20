@@ -1,5 +1,7 @@
-import Big from 'big.js';
 import BigNumberModel from './bigNumberModel';
+
+// tslint:disable-next-line:no-var-requires
+const Big = require('big.js');
 
 export const mul = (term1: number | string, term2: number | string) => {
   return getBigNumber(term1).multiply(term2);
