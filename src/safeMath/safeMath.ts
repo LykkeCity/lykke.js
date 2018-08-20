@@ -34,7 +34,7 @@ export const floor = (value: number, precision: number) => {
 export const toFixed = (value: number | string, accuracy: number) => {
   return getBigNumber(value)
     .toFixed(accuracy)
-    .valueOf();
+    .toString();
 };
 
 export const getPercentsOf = (
