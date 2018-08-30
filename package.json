@@ -73,6 +73,9 @@
     }
   },
   "dependencies": {
-    "big.js": "^5.1.2"
+    "@types/amplitude-js": "^2.12.5",
+    "amplitude-js": "^4.4.0",
+    "big.js": "^5.1.2",
+    "react-ga": "^2.5.3"
   }
 }
