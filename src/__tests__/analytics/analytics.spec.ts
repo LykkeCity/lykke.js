@@ -1,50 +1,28 @@
-import Amplitude from '../../analytics/Amplitude';
-import Analytics from '../../analytics/Analytics';
 import GoogleAnalytics from '../../analytics/GoogleAnalytics';
 
-jest.mock('react-ga');
-jest.mock('amplitude-js');
+import ReactGA from 'react-ga';
 
 describe('Analytics', () => {
   describe('GoogleAnalytics', () => {
-    const setupAndGetInstance = (key: string) => {
-      GoogleAnalytics.setup(key);
-      return GoogleAnalytics.getInstance();
-    };
-
-    it('should setup', () => {
-      expect(setupAndGetInstance('key')).toBeDefined();
+    describe('setup() method', () => {
+      ReactGA.initialize = jest.fn();
+      it('should call GA initialize() method', () => {
+        const key = 'key';
+        GoogleAnalytics.setup(key);
+        expect(ReactGA.initialize).toBeCalled();
+      });
     });
 
-    it('should be a singleton', () => {
-      const firstInstance = setupAndGetInstance('key');
-      const secondInstance = setupAndGetInstance('one more key');
-      expect(firstInstance).toEqual(secondInstance);
-    });
-
-    it('shold be a child class of Analytics', () => {
-      expect(setupAndGetInstance('key')).toBeInstanceOf(Analytics);
-    });
-  });
-
-  describe('Amplitude', () => {
-    const setupAndGetInstance = (key: string) => {
-      Amplitude.setup(key);
-      return GoogleAnalytics.getInstance();
-    };
-
-    it('should setup', () => {
-      expect(setupAndGetInstance('key')).toBeDefined();
-    });
-
-    it('should be a singleton', () => {
-      const firstInstance = setupAndGetInstance('key');
-      const secondInstance = setupAndGetInstance('one more key');
-      expect(firstInstance).toEqual(secondInstance);
-    });
-
-    it('shold be a child class of Analytics', () => {
-      expect(setupAndGetInstance('key')).toBeInstanceOf(Analytics);
+    describe('track() method', () => {
+      ReactGA.event = jest.fn();
+      it('should call GA event() method', () => {
+        const event = {
+          action: 'Click Button',
+          category: 'Click'
+        };
+        GoogleAnalytics.track(event);
+        expect(ReactGA.event).toBeCalled();
+      });
     });
   });
 });
