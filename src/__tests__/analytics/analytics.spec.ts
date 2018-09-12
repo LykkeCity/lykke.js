@@ -3,6 +3,16 @@ import Segment from '../../analytics/Segment';
 
 import ReactGA from 'react-ga';
 
+const event = {
+  details: {
+    category: 'Lykke Web Terminal',
+    info: 'Market',
+    location: 'Order Widget',
+    type: 'Button'
+  },
+  title: 'Change Order Type'
+};
+
 describe('Analytics', () => {
   describe('GoogleAnalytics', () => {
     describe('setup() method', () => {
@@ -17,10 +27,6 @@ describe('Analytics', () => {
     describe('track() method', () => {
       ReactGA.event = jest.fn();
       it('should call GA event() method', () => {
-        const event = {
-          action: 'Click Button',
-          category: 'Click'
-        };
         GoogleAnalytics.track(event);
         expect(ReactGA.event).toBeCalled();
       });
@@ -44,10 +50,6 @@ describe('Analytics', () => {
 
     describe('track() method', () => {
       it('should call GA event() method', () => {
-        const event = {
-          action: 'Click Button',
-          category: 'Click'
-        };
         Segment.track(event);
         expect(window.analytics.track).toBeCalled();
       });

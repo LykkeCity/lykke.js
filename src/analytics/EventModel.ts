@@ -1,4 +1,11 @@
-export default interface EventModel {
+export interface EventDetailsModel {
   category: string;
-  action: string;
+  location: string;
+  type: string;
+  info?: any;
+}
+
+export interface EventModel {
+  title: string;
+  details: EventDetailsModel;
 }

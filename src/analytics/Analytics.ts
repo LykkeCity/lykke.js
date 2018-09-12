@@ -1,4 +1,4 @@
-import EventModel from './EventModel';
+import {EventModel} from './EventModel';
 
 export default abstract class Analytics {
   abstract setup(key: string): void;

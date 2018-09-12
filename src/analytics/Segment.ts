@@ -1,5 +1,5 @@
 import Analytics from './Analytics';
-import EventModel from './EventModel';
+import {EventModel} from './EventModel';
 
 declare global {
   interface Window {
@@ -15,7 +15,7 @@ export default abstract class Segment extends Analytics {
 
   static track = (event: EventModel): void => {
     if (window && window.analytics) {
-      window.analytics.track(event.category, event);
+      window.analytics.track(event.title, event);
     }
   };
 
