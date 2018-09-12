@@ -1,4 +1,5 @@
 import GoogleAnalytics from '../../analytics/GoogleAnalytics';
+import Segment from '../../analytics/Segment';
 
 import ReactGA from 'react-ga';
 
@@ -22,6 +23,33 @@ describe('Analytics', () => {
         };
         GoogleAnalytics.track(event);
         expect(ReactGA.event).toBeCalled();
+      });
+    });
+  });
+
+  describe('Segment', () => {
+    window.analytics = {
+      load: jest.fn(),
+      track: jest.fn()
+    };
+
+    describe('setup() method', () => {
+      it('should call GA initialize() method', () => {
+        const key = 'key';
+        Segment.loadCdn = jest.fn();
+        Segment.setup(key);
+        expect(window.analytics.load).toBeCalled();
+      });
+    });
+
+    describe('track() method', () => {
+      it('should call GA event() method', () => {
+        const event = {
+          action: 'Click Button',
+          category: 'Click'
+        };
+        Segment.track(event);
+        expect(window.analytics.track).toBeCalled();
       });
     });
   });
