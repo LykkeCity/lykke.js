@@ -14,8 +14,14 @@ export default abstract class Segment extends Analytics {
   };
 
   static track = (event: EventModel): void => {
-    if (window && window.analytics) {
+    if (window && window.analytics && window.analytics.track) {
       window.analytics.track(event.title, event);
+    }
+  };
+
+  static identify = (traits: any): void => {
+    if (window && window.analytics && window.analytics.identify) {
+      window.analytics.identify(traits);
     }
   };
 

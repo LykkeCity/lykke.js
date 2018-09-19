@@ -35,12 +35,13 @@ describe('Analytics', () => {
 
   describe('Segment', () => {
     window.analytics = {
+      identify: jest.fn(),
       load: jest.fn(),
       track: jest.fn()
     };
 
     describe('setup() method', () => {
-      it('should call GA initialize() method', () => {
+      it('should call Segment load() method', () => {
         const key = 'key';
         Segment.loadCdn = jest.fn();
         Segment.setup(key);
@@ -49,9 +50,16 @@ describe('Analytics', () => {
     });
 
     describe('track() method', () => {
-      it('should call GA event() method', () => {
+      it('should call Segment event() method', () => {
         Segment.track(event);
         expect(window.analytics.track).toBeCalled();
+      });
+    });
+
+    describe('identify() method', () => {
+      it('should call Segment identify() method', () => {
+        Segment.identify(event);
+        expect(window.analytics.identify).toBeCalled();
       });
     });
   });
