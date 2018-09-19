@@ -1,5 +1,5 @@
 import Analytics from './Analytics';
-import {EventModel} from './EventModel';
+import EventModel from './models/EventModel';
 
 export function track(event: EventModel, ...services: Analytics[]): any {
   return (

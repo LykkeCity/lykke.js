@@ -1,7 +1,7 @@
 import ReactGA, {InitializeOptions} from 'react-ga';
 import Analytics from './Analytics';
-import {EventModel} from './EventModel';
 import {mapToGoogleEvent} from './mappers/mapToGoogleEvent';
+import EventModel from './models/EventModel';
 
 export default abstract class GoogleAnalytics extends Analytics {
   static setup(trackingId: string, options?: InitializeOptions): void {

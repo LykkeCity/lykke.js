@@ -18,7 +18,13 @@ export default {
       importHelpers: true,
       typescript: require('typescript')
     }),
-    commonjs(),
+    commonjs({
+      include: [
+        'node_modules/big.js/big.js',
+        'node_modules/react-ga/dist/react-ga.js',
+        'src/analytics/models/**'
+      ]
+    }),
     nodeResolve({jsnext: true, main: true, browser: true}),
     uglify({}, minify)
   ]
