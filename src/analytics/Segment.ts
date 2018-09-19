@@ -1,5 +1,5 @@
 import Analytics from './Analytics';
-import {EventModel} from './EventModel';
+import EventModel from './models/EventModel';
 
 declare global {
   interface Window {

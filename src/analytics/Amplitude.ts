@@ -1,13 +1,13 @@
-import {init, logEvent} from 'amplitude-js';
+import * as AmlitudeAnalytics from 'amplitude-js';
 import Analytics from './Analytics';
-import {EventModel} from './EventModel';
+import EventModel from './models/EventModel';
 
 export default abstract class Amplitude extends Analytics {
   static setup(apiKey: string): void {
-    init(apiKey);
+    AmlitudeAnalytics.init(apiKey);
   }
 
   static track = (event: EventModel): void => {
-    logEvent(event.title, event);
+    AmlitudeAnalytics.logEvent(event.title, event);
   };
 }

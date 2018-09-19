@@ -2,8 +2,13 @@ import GoogleAnalytics from '../../analytics/GoogleAnalytics';
 import {track} from '../../analytics/track';
 
 const event = {
-  action: 'Click Button',
-  category: 'Click'
+  details: {
+    category: 'Lykke Web Terminal',
+    info: 'Market',
+    location: 'Order Widget',
+    type: 'Button'
+  },
+  title: 'Change Order Type'
 };
 
 describe('Decorator', () => {

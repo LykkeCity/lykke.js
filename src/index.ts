@@ -3,10 +3,11 @@ import {track} from './analytics/track';
 import {formatNumber} from './intl/number';
 import * as safeMath from './safeMath/safeMath';
 
-import {EventDetailsModel, EventModel} from '../dist/analytics/EventModel';
 import Amplitude from './analytics/Amplitude';
 import Analytics from './analytics/Analytics';
 import GoogleAnalytics from './analytics/GoogleAnalytics';
+import EventDetailsModel from './analytics/models/EventDetailsModel';
+import EventModel from './analytics/models/EventModel';
 import Segment from './analytics/Segment';
 
 export {buildDijkstra, formatNumber, safeMath, track};
