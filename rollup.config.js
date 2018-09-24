@@ -22,7 +22,7 @@ export default {
       include: [
         'node_modules/big.js/big.js',
         'node_modules/react-ga/dist/react-ga.js',
-        'src/analytics/models/**'
+        'src/**'
       ]
     }),
     nodeResolve({jsnext: true, main: true, browser: true}),
