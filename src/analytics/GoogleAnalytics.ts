@@ -8,6 +8,10 @@ export default abstract class GoogleAnalytics extends Analytics {
     ReactGA.initialize(trackingId, options);
   }
 
+  static pageview(path: string): void {
+    ReactGA.pageview(path);
+  }
+
   static track = (event: EventModel): void => {
     ReactGA.event(mapToGoogleEvent(event));
   };
