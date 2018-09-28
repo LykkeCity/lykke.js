@@ -10,4 +10,12 @@ export default abstract class Amplitude extends Analytics {
   static track = (event: EventModel): void => {
     AmlitudeAnalytics.logEvent(event.title, event);
   };
+
+  static identify = (traits: any): void => {
+    const identify = new AmlitudeAnalytics.Identify();
+    Object.keys(traits).forEach((key: string) => {
+      identify.set(key, traits[key]);
+    });
+    AmlitudeAnalytics.identify(identify);
+  };
 }
