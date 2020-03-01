@@ -7,6 +7,10 @@ export default abstract class Amplitude extends Analytics {
     AmlitudeAnalytics.init(apiKey);
   }
 
+  static setUserId(userId: string): void {
+    AmlitudeAnalytics.setUserId(userId);
+  }
+
   static track = (event: EventModel): void => {
     AmlitudeAnalytics.logEvent(event.title, event);
   };
